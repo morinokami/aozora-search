@@ -1,0 +1,46 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 30px;
+  background-color: #fff;
+}
+
+.navbar-inverse {
+  background-color: #3B7AA3;
+  border-color: #3B7AA3;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #3B7AA3;
+}
+
+.footer .footer-text {
+  color: #88BCD8;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.main-top {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.main-result {
+  padding: 40px 15px;
+}
+
+li.result {
+  list-style: none;
+}
+
+.result-pagenate {
+  text-align: center;
+}
