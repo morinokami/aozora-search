@@ -2,6 +2,10 @@ from flask import render_template, url_for
 from . import main
 from .forms import SearchForm
 
+from elasticsearch import Elasticsearch
+
+es = Elasticsearch()
+
 
 @main.route('/', methods=['GET'])
 def index():
@@ -11,7 +15,8 @@ def index():
 
 @main.route('/search', methods=['GET', 'POST'])
 def search():
-    return "search res"
+    res = es.search(index="aozora-search", body={"query": {"match_all": {}}})
+    return 'Got %d Hits:' % res['hits']['total']
 
 
 @main.route('/about', methods=['GET'])
