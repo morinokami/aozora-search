@@ -45,6 +45,10 @@ body {
   text-align: center;
 }
 
+.main-top h1 {
+  font-size: 30px;
+}
+
 .search-top {
   width: 80%;
   margin: auto;
