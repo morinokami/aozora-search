@@ -3,6 +3,9 @@
 {% block page_content %}
     <div class="main-top">
         <h1>青空文庫全文検索</h1>
-        {{ wtf.quick_form(form, action="/search", method="GET") }}
+        <form action="/search">
+            {{ form.q() }}
+            <input type="submit" value="検索">
+        </form>
     </div>
 {% endblock %}

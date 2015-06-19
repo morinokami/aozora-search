@@ -4,6 +4,5 @@ from wtforms.validators import Required
 
 
 class SearchForm(Form):
-    text = StringField('', validators=[Required()])
+    q = StringField('', validators=[Required()])
     submit = SubmitField('検索')
-

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}検索結果{% endblock %}
+
+{% block page_content %}
+    <div class="main-result">
+        {% if res['hits']['total'] %}
+            <div class="result-stat">
+                <p>{{ res['hits']['total'] }}件 ({{ res['took'] /1000 }}秒)</p>
+            </div>
+
+            <ol class="result-list">
+            {% for r in res['hits']['hits'] %}
+                <li class="result">
+                    <h2><a href="#">{{ r['_source']['title'] }} {{ r['_source']['subtitle'] }}</a></h2>
+                    <h3>{{ r['_source']['author'] }}</h3>
+                    <h4>該当箇所 (n件)</h4>
+                    <ol>
+                    {% for h in r['highlight']['main_text'] %}
+                        <li class="hit">{{ h|safe }}</li>
+                    {% endfor %}
+                    </ol>
+                </li>
+            {% endfor %}
+            </ol>
+
+            <div class="result-pagenate">
+                {% for p in pagenate %}
+                    {% if p == page %}
+                        <span>{{ p }}</span>
+                    {% else %}
+                        <span><a href="?q={{ q }}&amp;page={{ p }}">{{ p }}</a></span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <h2>該当結果なし</h2>
+        {% endif %}
+    </div>
+{% endblock %}

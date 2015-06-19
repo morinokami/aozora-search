@@ -37,8 +37,16 @@ body {
   padding: 40px 15px;
 }
 
+.result-list {
+  padding-left: 0;
+}
+
 li.result {
   list-style: none;
+}
+
+.hit em {
+  font-weight: bold;
 }
 
 .result-pagenate {
