@@ -4,8 +4,10 @@
     <div class="main-top">
         <h1>青空文庫全文検索</h1>
         <form action="/search">
-            {{ form.q() }}
-            <input type="submit" value="検索">
+            <div class="form-group">
+              {{ form.q(class='form-control') }}
+            </div>
+            <button type="submit" class="btn">検索</button>
         </form>
     </div>
 {% endblock %}
