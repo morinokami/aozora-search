@@ -19,6 +19,10 @@ body {
   border-color: #3B7AA3;
 }
 
+.menu-item {
+  color: #88BCD8;
+}
+
 @media only screen and (max-width: 767px) {
     .navbar {
         margin-bottom: 0;
