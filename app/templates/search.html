@@ -5,13 +5,14 @@
 {% block page_content %}
     <div class="main-result">
         {% if res['hits']['total'] %}
-            <div class="result-stat">
+            <div class="result-stat hidden-xs">
                 <p>{{ res['hits']['total'] }}件 ({{ res['took'] /1000 }}秒)</p>
             </div>
 
             <ol class="result-list">
             {% for r in res['hits']['hits'] %}
                 <li class="result">
+                    <hr>
                     <h2><a href="#">{{ r['_source']['title'] }} {{ r['_source']['subtitle'] }}</a></h2>
                     <h3>{{ r['_source']['author'] }}</h3>
                     <h4>該当箇所 (n件)</h4>
@@ -24,14 +25,24 @@
             {% endfor %}
             </ol>
 
+            <hr>
+
             <div class="result-pagenate">
+                {% if page > 1 %}
+                    <span><a href="?q={{ q }}&amp;page={{ page - 1 }}">&lt; 戻る</a></span>
+                {% endif %}
+
                 {% for p in pagenate %}
                     {% if p == page %}
-                        <span>{{ p }}</span>
+                        <span class="page-num-current hidden-xs">{{ p }}</span>
                     {% else %}
-                        <span><a href="?q={{ q }}&amp;page={{ p }}">{{ p }}</a></span>
+                        <span class="page-num hidden-xs"><a href="?q={{ q }}&amp;page={{ p }}">{{ p }}</a></span>
                     {% endif %}
                 {% endfor %}
+
+                {% if page < pagenate[-1] %}
+                    <span><a href="?q={{ q }}&amp;page={{ page + 1 }}">進む &gt;</a></span>
+                {% endif %}
             </div>
         {% else %}
             <h2>該当結果なし</h2>

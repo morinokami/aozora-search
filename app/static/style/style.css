@@ -33,6 +33,16 @@ body {
   text-align: center;
 }
 
+.search-top {
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.result-stat {
+  color: #808080;
+}
+
 .main-result {
   padding: 40px 15px;
 }
@@ -51,4 +61,12 @@ li.result {
 
 .result-pagenate {
   text-align: center;
+}
+
+.page-num-current {
+  font-weight: bold;
+}
+
+.page-num, .page-num-current {
+  padding: 0 0.5em;
 }
