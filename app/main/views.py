@@ -18,7 +18,7 @@ def search():
     if request.method == 'GET':
         form = SearchForm()
         q = request.args.get('q')
-        query = {'match_phrase': {'main_text': q}}
+        query = {'match': {'main_text': q}}
         highlight = {'fields': {'main_text': {}}}
         if request.args.get('page') and request.args.get('page').isdigit():
             page = int(request.args.get('page'))
