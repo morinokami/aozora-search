@@ -8,9 +8,21 @@ body {
   background-color: #fff;
 }
 
+@media only screen and (max-width: 767px) {
+    body {
+        background-color: #f1f1f1;
+    }
+}
+
 .navbar {
   background-color: #3B7AA3;
   border-color: #3B7AA3;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar {
+        margin-bottom: 0;
+    }
 }
 
 .footer {
@@ -47,12 +59,37 @@ body {
   padding: 40px 15px;
 }
 
+@media only screen and (max-width: 767px) {
+    .main-result {
+        padding: 0;
+    }
+}
+
 .result-list {
   padding-left: 0;
 }
 
 li.result {
   list-style: none;
+}
+
+@media only screen and (max-width: 767px) {
+    li.result {
+        background-color: #fff;
+        padding: 0 1em;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .title {
+        padding-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .highlight {
+        padding-bottom: 10px;
+    }
 }
 
 .hit em {
@@ -63,10 +100,39 @@ li.result {
   text-align: center;
 }
 
+@media only screen and (max-width: 767px) {
+    .result-pagenate {
+        margin: 1em 0;
+        padding: 1em;
+        background-color: #fff;
+    }
+}
+
 .page-num-current {
   font-weight: bold;
 }
 
 .page-num, .page-num-current {
   padding: 0 0.5em;
+}
+
+@media only screen and (max-width: 767px) {
+    .back-btn, .forward-btn {
+        padding-top, padding-bottom: 0.5em;
+    }
+
+    .back-btn {
+        padding-right: 2em;
+    }
+
+    .forward-btn {
+        padding-left: 2em;
+    }
+
+    .back-btn a, .forward-btn a {
+        color: #808080;
+        font-size: 1.5em;
+        font-weight: lighter;
+        text-decoration: none;
+    }
 }
