@@ -11,4 +11,5 @@ class SearchForm(Form):
 class AdvancedSearchForm(Form):
     q = StringField('キーワード', validators=[Required()])
     author = StringField('著者名')
+    publisher = StringField('出版社名')
     submit = SubmitField('検索')
