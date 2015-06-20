@@ -8,6 +8,12 @@ body {
   background-color: #fff;
 }
 
+@media only screen and (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     body {
         background-color: #f1f1f1;
@@ -23,10 +29,8 @@ body {
   color: #88BCD8;
 }
 
-@media only screen and (max-width: 767px) {
-    .navbar {
-        margin-bottom: 0;
-    }
+.navbar {
+    margin-bottom: 0;
 }
 
 .footer {
@@ -73,11 +77,11 @@ body {
     }
 }
 
-.result-list {
+.result-list, .highlight-first {
   padding-left: 0;
 }
 
-li.result {
+li.result, .hit-first {
   list-style: none;
 }
 
@@ -108,12 +112,12 @@ li.result {
 }
 
 @media only screen and (max-width: 767px) {
-    .highlight {
+    .highlight-first {
         padding-bottom: 10px;
     }
 }
 
-.hit em {
+.hit em, .hit-first em {
   font-weight: bold;
 }
 

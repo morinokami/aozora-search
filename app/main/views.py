@@ -33,6 +33,46 @@ def search():
         return 'not yet'
 
 
+@main.route('/book/<int:book_id>', methods=['GET'])
+def book(book_id):
+    query = {
+        'filtered': {
+            'query': {
+                'match_all': {}
+            },
+            'filter': {
+                'term': {
+                    'book_id': book_id
+                }
+            }
+        }
+    }
+    res = es.search(index='aozora-search', body={'query': query})
+    if res['hits']['total']:
+        q = request.args.get('q')
+        if q is None:
+            return '404'
+        query = {
+            "filtered": {
+                "query": {
+                    "match": {
+                        "main_text": q
+                    }
+                },
+                "filter": {
+                    "term": {
+                        "book_id": book_id
+                    }
+                }
+            }
+        }
+        highlight = {'fields': {'main_text': {}}}
+        hits = es.search(index='aozora-search', body={'query': query, 'highlight': highlight})
+        return render_template('book.html', res=res['hits']['hits'][0]['_source'], hits=hits['hits']['hits'][0]['highlight']['main_text'])
+    else:
+        return '404'
+
+
 @main.route('/about', methods=['GET'])
 def about():
     return render_template('about.html')

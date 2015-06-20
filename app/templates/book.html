@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ res['title'] }}{% endblock %}
+
+{% block page_content %}
+    <div class="main-book">
+        <div class="book-info">
+            <h2 class="title">{{ res['title'] }} {{ res['subtitle'] }}</h2>
+            <h3 class="author">{{ res['author'] }}</h3>
+
+            <table class="table table-bordered">
+                <tr>
+                    <td>著作権</td>
+                    <td>{% if res['copyright'] %}存続{% else %} {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>文字遣い種別</td>
+                    <td>{{ res['kana'] }}</td>
+                </tr>
+                {% if res['orig_book'] %}
+                <tr>
+                    <td>底本</td>
+                    <td>{{ res['orig_book'] }}</td>
+                </tr>
+                {% endif %}
+                {% if res['orig_pub'] %}
+                <tr>
+                    <td>底本の出版社</td>
+                    <td>{{ ', '.join(res['orig_pub']) }}</td>
+                </tr>
+                {% endif %}
+                {% if res['ancestor_book'] %}
+                <tr>
+                    <td>底本の親本</td>
+                    <td>{{ res['ancestor_book'] }}</td>
+                </tr>
+                {% endif %}
+                {% if res['ancestor_pub'] %}
+                <tr>
+                    <td>底本の親本の出版社</td>
+                    <td>{{ ', '.join(res['ancestor_pub']) }}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td>青空文庫へのリンク</td>
+                    <td><a href="{{ res['url'] }}" target="_blank">本文へ</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <h4 class="hits">該当箇所</h4>
+        <div class="result">
+            <ol class="highlight">
+                {% for h in hits %}
+                    <li class="hit">{{ h|safe }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+{% endblock %}
