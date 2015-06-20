@@ -48,6 +48,7 @@
             </table>
         </div>
 
+        {% if hits %}
         <h4 class="hits">該当箇所</h4>
         <div class="result">
             <ol class="highlight">
@@ -56,5 +57,6 @@
                 {% endfor %}
             </ol>
         </div>
+        {% endif %}
     </div>
 {% endblock %}

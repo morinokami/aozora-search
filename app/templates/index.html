@@ -5,7 +5,7 @@
         <h1>青空文庫全文検索</h1>
         <form class="search-top" action="/search">
             <div class="form-group">
-              {{ form.q(class='form-control') }}
+              {{ form.q(class='form-control', required=True) }}
             </div>
             <button type="submit" class="btn btn-default">検索</button>
         </form>

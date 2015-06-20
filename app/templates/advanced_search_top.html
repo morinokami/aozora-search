@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}詳細検索{% endblock %}
+
+{% block page_content %}
+    <h2>詳細検索</h2>
+    <form action="/advanced-search" method="GET">
+        <div class="form-group">
+          {{ form.q.label }} {{ form.q(class='form-control', required=True) }} <br>
+          {{ form.author.label }} {{ form.author(class='form-control') }} <br>
+        </div>
+
+        <button type="submit" class="btn btn-default">検索</button>
+    </form>
+{% endblock %}
