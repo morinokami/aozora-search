@@ -1,6 +1,6 @@
-from flask import render_template, redirect, request, url_for
+from flask import abort, render_template, redirect, request, url_for
 from . import main
-from .forms import SearchForm
+from .forms import SearchForm, AdvancedSearchForm
 
 from elasticsearch import Elasticsearch
 
@@ -33,6 +33,13 @@ def search():
         return 'not yet'
 
 
+@main.route('/advanced-search', methods=['GET'])
+def advanced_search():
+    form = AdvancedSearchForm()
+    print(dir(form))
+    return render_template('advanced_search.html', form=form)
+
+
 @main.route('/book/<int:book_id>', methods=['GET'])
 def book(book_id):
     query = {
@@ -51,7 +58,7 @@ def book(book_id):
     if res['hits']['total']:
         q = request.args.get('q')
         if q is None:
-            return '404'
+            abort(404)
         query = {
             "filtered": {
                 "query": {
@@ -70,7 +77,7 @@ def book(book_id):
         hits = es.search(index='aozora-search', body={'query': query, 'highlight': highlight})
         return render_template('book.html', res=res['hits']['hits'][0]['_source'], hits=hits['hits']['hits'][0]['highlight']['main_text'])
     else:
-        return '404'
+        abort(404)
 
 
 @main.route('/about', methods=['GET'])
