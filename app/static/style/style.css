@@ -48,13 +48,14 @@ body {
   margin: 5px 0;
 }
 
+.site-name {
+  font-size: 5em;
+  color: #22b8eb;
+}
+
 .main-top {
   padding: 40px 15px;
   text-align: center;
-}
-
-.main-top h1 {
-  font-size: 30px;
 }
 
 .search-top {
