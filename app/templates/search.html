@@ -16,7 +16,7 @@
                     <h2 class="title"><a href="/book/{{ r['_source']['book_id'] }}?q={{ q }}">{{ r['_source']['title'] }} {{ r['_source']['subtitle'] }}</a></h2>
                     <h3 class="author">{{ r['_source']['author'] }}</h3>
                     {% if r['highlight'] %}
-                        <h4 class="hits">該当箇所 (スコア {{ r['_score'] }})</h4>
+                        <h4 class="hits">スコア {{ r['_score'] }}</h4>
                         <ol class="highlight-first">
                         {% for h in r['highlight']['main_text'][:1] %}
                             <li class="hit-first">{{ h|safe }}</li>

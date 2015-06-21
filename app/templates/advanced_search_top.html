@@ -7,7 +7,7 @@
     <form action="/advanced-search" method="GET">
         <div class="form-group">
           {{ form.q.label }} {{ form.q(class='form-control', required=True) }} <br>
-          {{ form.title.label }} {{ form.title(class='form-control', required=True) }} <br>
+          {{ form.title.label }} {{ form.title(class='form-control') }} <br>
           {{ form.author.label }} {{ form.author(class='form-control') }} <br>
           {{ form.publisher.label }} {{ form.publisher(class='form-control') }} <br>
 
