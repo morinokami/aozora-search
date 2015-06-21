@@ -54,6 +54,12 @@ body {
   margin-top: 60px;
 }
 
+@media only screen and (max-width: 767px) {
+  .site-name {
+        margin-top: 20px;
+    }
+}
+
 .main-top {
   padding: 40px 15px;
   text-align: center;
