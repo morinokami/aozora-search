@@ -35,6 +35,7 @@ def advanced_search():
 
     if len(request.args):
         q = request.args.get('q')
+        title = request.args.get('title')
         author = request.args.get('author')
         publisher = request.args.get('publisher')
         if request.args.get('page') and request.args.get('page').isdigit():
@@ -44,7 +45,7 @@ def advanced_search():
         if not any([q, author]):
             return render_template('advanced_search_top.html', form=form)
 
-        res, total = engine.advanced_search(q, author, publisher, page)
+        res, total = engine.advanced_search(q, title, author, publisher, page)
         query_str = 'q={}&author={}&publisher={}'.format(q, author, publisher)
         return render_template('search.html', res=res, query_str=query_str, page=page, pagenate=range(1, (total - 1) // 10 + 2), q=q)
 

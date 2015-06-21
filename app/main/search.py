@@ -36,7 +36,7 @@ class SearchEngine:
 
         return res, total
 
-    def advanced_search(self, q, author, publisher, page):
+    def advanced_search(self, q, title, author, publisher, page):
         must = []
         if q:
             query = {
@@ -47,6 +47,8 @@ class SearchEngine:
                     }
                 }
             }
+        if title:
+            must.append({'term': {'title': title}})
         if author:
             must.append({'term': {'author': author}})
         if publisher:
