@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form
-from wtforms import StringField, SubmitField
+from wtforms import SelectField, StringField, SubmitField
 from wtforms.validators import Required
 
 
@@ -9,8 +9,11 @@ class SearchForm(Form):
 
 
 class AdvancedSearchForm(Form):
-    q = StringField('キーワード', validators=[Required()])
-    title = StringField('タイトル')
-    author = StringField('著者名')
-    publisher = StringField('出版社名')
+    q = StringField('キーワード:', validators=[Required()])
+    title = StringField('タイトル:')
+    author = StringField('著者名:')
+    publisher = StringField('底本の出版社名:')
+    category1 = SelectField(choices=[])
+    category2 = SelectField(choices=[])
+    category3 = SelectField(choices=[])
     submit = SubmitField('検索')

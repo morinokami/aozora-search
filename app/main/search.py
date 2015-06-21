@@ -36,7 +36,7 @@ class SearchEngine:
 
         return res, total
 
-    def advanced_search(self, q, title, author, publisher, page):
+    def advanced_search(self, q, title, author, publisher, category1, category2, category3, page):
         must = []
         if q:
             query = {
@@ -53,6 +53,12 @@ class SearchEngine:
             must.append({'term': {'author': author}})
         if publisher:
             must.append({'term': {'orig_pub': publisher}})
+        if category3:
+            must.append({'term': {'category3': category3}})
+        elif category2:
+            must.append({'term': {'category2': category2}})
+        elif category1:
+            must.append({'term': {'category1': category1}})
 
         highlight = {
             'fields': {
