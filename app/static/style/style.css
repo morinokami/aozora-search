@@ -51,6 +51,7 @@ body {
 .site-name {
   font-size: 5em;
   color: #22b8eb;
+  margin-top: 60px;
 }
 
 .main-top {
@@ -58,7 +59,7 @@ body {
   text-align: center;
 }
 
-.main-about, .main-contact, .search-top {
+.main-about, .main-contact {
   padding: 40px 0px;
 }
 
@@ -69,7 +70,7 @@ body {
 .search-top {
   width: 80%;
   margin: auto;
-  margin-top: 40px;
+  padding-top: 20px;
 }
 
 .result-stat {
@@ -169,4 +170,8 @@ li.result, .hit-first {
         font-weight: lighter;
         text-decoration: none;
     }
+}
+
+.search-btn {
+  text-align: center;
 }
