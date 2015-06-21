@@ -81,7 +81,7 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-    .main-result {
+    .main-result, .main-about, .main-contact {
         padding: 0;
     }
 }
