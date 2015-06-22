@@ -2,6 +2,12 @@
 
 {% block title %}{{ res['title'] }}{% endblock %}
 
+{% block metas %}
+    {{ super() }}
+    <meta name="description" content="Metamoは、青空文庫の全文検索システムです。キーワードを含む文献の検索だけでなく、著者名や文献の種類を指定することができる詳細検索にも対応しています。">
+    <meta name="keyword" content="青空文庫,全文検索,{{ res['title'] }}">
+{% endblock %}
+
 {% block page_content %}
     <div class="main-book">
         <div class="book-info">

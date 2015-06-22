@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}検索結果{% endblock %}
+{% block title %}「{{ q }}」の検索結果{% endblock %}
+
+{% block metas %}
+    {{ super() }}
+    <meta name="description" content="「{{ q }}」の検索結果">
+    <meta name="keyword" content="青空文庫,全文検索,{{ q }}">
+{% endblock %}
 
 {% block page_content %}
     <div class="main-result">
