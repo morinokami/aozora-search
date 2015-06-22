@@ -101,7 +101,7 @@ body {
   padding: 40px 0px;
 }
 
-.main-result .page-header {
+.main-result .page-header, .no-query, .no-result {
   text-align: center;
   border-bottom: none;
 }

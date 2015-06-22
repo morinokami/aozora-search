@@ -50,6 +50,11 @@
             <div class="page-header">
                 <h2>文書が見つかりません。</h2>
             </div>
+            {% if not q %}
+                <p class="no-query">検索クエリが設定されていません。</p>
+            {% else %}
+                <p class="no-result">「{{ q }}」を含む文書は見つかりませんでした。</p>
+            {% endif %}
             <form class="search-top" action="/search">
                 <div class="form-group">
                     <input class="form-control" id="q" name="q" required="" type="text" value="">
