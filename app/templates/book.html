@@ -52,7 +52,7 @@
             </table>
         </div>
 
-        {% if hits %}
+        {% if hits and not res['copyright'] %}
         <h4 class="hits">該当箇所</h4>
         <div class="result">
             <ol class="highlight">
