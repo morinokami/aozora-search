@@ -29,7 +29,22 @@ def search():
 
     res, total = engine.search(q, page)
     query_str = 'q={}'.format(q)
-    return render_template('search.html', res=res, query_str=query_str, page=page, pagenate=range(1, (total - 1) // 10 + 2), q=q)
+    num_page = (total - 1) // 10 + 2
+    if page > num_page or page < 1:
+        page = 1
+        res, total = engine.search(q, page)
+
+    if num_page <= 10:
+        start, end = 1, num_page
+    else:
+        if num_page - page > 10:
+            start = page
+            end = page + 10
+        else:
+            start = num_page - 10
+            end = num_page
+    return render_template('search.html', res=res, query_str=query_str, page=page, pagenate=range(start, end), q=q)
+    # return render_template('search.html', res=res, query_str=query_str, page=page, pagenate=range(1, (total - 1) // 10 + 2), q=q)
 
 
 @main.route('/advanced-search', methods=['GET'])
@@ -53,7 +68,21 @@ def advanced_search():
 
         res, total = engine.advanced_search(q, title, author, publisher, category1, category2, category3, page)
         query_str = 'q={}&author={}&publisher={}&category1={}&category2={}&category3={}'.format(q, author, publisher, category1, category2, category3)
-        return render_template('search.html', res=res, query_str=query_str, page=page, pagenate=range(1, (total - 1) // 10 + 2), q=q)
+        num_page = (total - 1) // 10 + 2
+        if page > num_page or page < 1:
+            page = 1
+            res, total = engine.search(q, page)
+
+        if num_page <= 10:
+            start, end = 1, num_page
+        else:
+            if num_page - page > 10:
+                start = page
+                end = page + 10
+            else:
+                start = num_page - 10
+                end = num_page
+        return render_template('search.html', res=res, query_str=query_str, page=page, pagenate=range(start, end), q=q)
 
     return render_template('advanced_search_top.html', form=form)
 

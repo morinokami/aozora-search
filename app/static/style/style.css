@@ -101,6 +101,11 @@ body {
   padding: 40px 0px;
 }
 
+.main-result .page-header {
+  text-align: center;
+  border-bottom: none;
+}
+
 @media only screen and (max-width: 767px) {
     .main-result, .main-about, .main-contact {
         padding: 0;
