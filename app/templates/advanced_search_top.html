@@ -3,22 +3,26 @@
 {% block title %}詳細検索{% endblock %}
 
 {% block page_content %}
-    <h2>詳細検索</h2>
-    <form action="/advanced-search" method="GET">
-        <div class="form-group">
-            {{ form.q.label }} {{ form.q(class='form-control', required=True) }} <br>
-            {{ form.title.label }} {{ form.title(class='form-control') }} <br>
-            {{ form.author.label }} {{ form.author(class='form-control') }} <br>
-            {{ form.publisher.label }} {{ form.publisher(class='form-control') }} <br>
-            <label>分類: </label>
-            {{ form.category1(class='form-control select') }} <br>
-            {{ form.category2(class='form-control select') }} <br>
-            {{ form.category3(class='form-control select') }} <br>
-            <div class="search-btn">
-                <button type="submit" class="btn btn-default search-btn">検索</button>
-            </div>
+    <div class="main-advanced-search">
+        <div class="page-header">
+            <h2>詳細検索</h2>
         </div>
-    </form>
+        <form action="/advanced-search" method="GET">
+            <div class="form-group">
+                {{ form.q.label }} {{ form.q(class='form-control', required=True) }} <br>
+                {{ form.title.label }} {{ form.title(class='form-control') }} <br>
+                {{ form.author.label }} {{ form.author(class='form-control') }} <br>
+                {{ form.publisher.label }} {{ form.publisher(class='form-control') }} <br>
+                <label>分類: </label>
+                {{ form.category1(class='form-control select') }} <br>
+                {{ form.category2(class='form-control select') }} <br>
+                {{ form.category3(class='form-control select') }} <br>
+                <div class="search-btn">
+                    <button type="submit" class="btn btn-default search-btn">検索</button>
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock %}
 
 {% block scripts %}

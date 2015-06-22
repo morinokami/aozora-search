@@ -79,10 +79,6 @@ body {
   text-align: center;
 }
 
-.main-about, .main-contact {
-  padding: 40px 0px;
-}
-
 .main-about p {
   margin: 0 0 20px;
 }
@@ -107,7 +103,7 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-    .main-result, .main-about, .main-contact {
+    .main-result {
         padding: 0;
     }
 }
